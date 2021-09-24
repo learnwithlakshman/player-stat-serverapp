@@ -1,0 +1,42 @@
+server:
+  port: 8080
+
+springdoc:
+   api-docs:
+      path: 
+       /api-docs
+
+logging:
+   level:
+    org:
+     springframework:
+      data:
+        mongodb:
+          core:
+           MongoTemplate: DEBUG
+  
+spring:
+  data:
+    mongodb:
+      uri: mongodb+srv://dbuser:dbuser@ng-web-cluster.xbgxd.mongodb.net/playerdb?retryWrites=true&w=majority
+  batch:
+   job:
+    enabled: false
+---   
+spring.profiles: prod     
+spring:
+  data:
+    mongodb:
+      uri: mongodb+srv://dbuser:dbuser@ng-web-cluster.xbgxd.mongodb.net/pstatdb?retryWrites=true&w=majority
+  batch:
+   job:
+    enabled: false
+---
+spring.profiles: dev     
+spring:
+  data:
+    mongodb:
+      uri: mongodb+srv://dbuser:dbuser@ng-web-cluster.xbgxd.mongodb.net/pstatdb?retryWrites=true&w=majority
+  batch:
+   job:
+    enabled: false
